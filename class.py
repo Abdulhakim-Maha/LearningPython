@@ -15,6 +15,9 @@ class Employee :
 	
 	def credential(self) :
 		print( 'Name:',self.name,'Age:',self.age,'Salary:',self.salary)
+		
+	def __str__(self) -> str:
+		return self.name + str(self.age) + str(self.salary)
 
 class Programmer(Employee):
 	def __init__(self, name, age, salary,skill):
@@ -27,7 +30,11 @@ class Programmer(Employee):
 	def showAll(self):
 		print(self.name,self.age,self.salary,self.skill)
 	
+	def __str__(self) -> str:
+		return super().__str__() + self.skill
+	
 user1 = Programmer('austiniqer',19,14000.99,'C, Java, JavaScript, Python')
 # print(user1.credential())
-user1.showAll()
+print(user1.__str__())
+# user1.showAll()
 
