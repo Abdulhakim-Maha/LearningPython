@@ -42,5 +42,11 @@
 # from mod1 import first
 # print(f'hello from {__name__} test.py')
 # first()
-lis = [0,0,0]
-print(str(lis)[0])
+# lis = [0,0,0]
+# print(str(lis)[0])
+lis = [1,2,3,2]
+print(lis.count(3))
+for i in lis:
+	if i == 2:
+		lis.remove(i)
+print(lis)
