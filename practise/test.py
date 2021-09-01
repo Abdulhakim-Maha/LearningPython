@@ -49,4 +49,5 @@
 # 	if i == 2:
 # 		lis.remove(i)
 # print(lis)
-print(int('2'))
+y = [1,3]
+print(y.index(3))
