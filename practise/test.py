@@ -49,5 +49,19 @@
 # 	if i == 2:
 # 		lis.remove(i)
 # print(lis)
-y = [1,3]
-print(y.index(3))
+# lis = [i for i in range(100000000)]
+# lis.pop(0)
+# print(lis)
+# class Test:
+# 	'''
+# 	hello my name is austinier
+# 	'''
+# 	def __init__(self) -> None:
+# 		pass
+
+# s = Test()
+# print(s.__doc__)
+lis = ['1','2','3']
+s = str(lis)
+for i in s:
+	print(i)
