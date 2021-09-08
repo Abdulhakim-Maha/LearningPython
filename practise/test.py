@@ -61,7 +61,27 @@
 
 # s = Test()
 # print(s.__doc__)
-lis = ['1','2','3']
-s = str(lis)
-for i in s:
-	print(i)
+# lis = ['1','2','3']
+# s = str(lis)
+# for i in s:
+# 	print(i)
+# s = input('Enter Input : ')
+# for i in s :
+# 	print(i)
+# number = int(input('Enter number : '))
+# for i in range(number):
+# 	print('*' * number ) # ***
+# n = int(input("Enter the number of rows"))  
+# # outer loop to handle number of rows  
+# for i in range(0, n):  
+#     # inner loop to handle number of columns  
+#     # values is changing according to outer loop  
+#         for j in range(0, i + 1):  
+#             # printing stars  
+#             print("* ",end='')       
+  
+#         # ending line after each row  
+#         print() 
+lis = ['austiniqer','maha']
+lis.clear()
+lis = [0,1,2]
