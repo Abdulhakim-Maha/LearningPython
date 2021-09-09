@@ -82,6 +82,8 @@
   
 #         # ending line after each row  
 #         print() 
-lis = ['austiniqer','maha']
-lis.clear()
-lis = [0,1,2]
+lis = [1,2,3,4,5]
+s = ''
+for i in lis:
+	s += str(i)
+print(s,lis,sep=',') 

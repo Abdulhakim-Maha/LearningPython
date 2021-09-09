@@ -24,6 +24,19 @@ class Stack:
 						lis.append(i)
 		print(len(lis))
 
+	def spacial(self):
+		lis = []
+		for i in self.stack:
+			if i % 2 == 0:
+				i -= 1
+				lis.append(i)
+			elif i % 2 == 1:
+				i += 2
+				lis.append(i)
+		self.stack = lis
+
+
+
 s = Stack()
 inp = input('Enter Input : ').split(',')
 for i in inp:
@@ -33,6 +46,8 @@ for i in inp:
 		s.push(int(num))
 	elif typ == 'B':
 		s.turn_around()
+	elif typ == 'S':
+		s.spacial()
 		
 
 	
