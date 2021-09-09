@@ -83,7 +83,5 @@
 #         # ending line after each row  
 #         print() 
 lis = [1,2,3,4,5]
-s = ''
-for i in lis:
-	s += str(i)
-print(s,lis,sep=',') 
+i = 3
+print(i in lis)

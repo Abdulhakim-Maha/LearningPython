@@ -3,9 +3,11 @@ class Queue:
 	def __init__(self):
 		self.q = deque()
 		self.d = deque()
+
 	def enqueue(self,i):
 		self.q.append(i)
 		print(self.items())
+
 	def dequeue(self):
 		if len(self.q) == 0:
 			print('Empty')
@@ -25,7 +27,7 @@ class Queue:
 			else:
 				s += str(self.q[i])
 		return s
-	
+		
 	def items_d(self):
 		s = ''
 		if len(self.d) == 0:
@@ -36,7 +38,6 @@ class Queue:
 			else:
 				s += str(self.d[i])
 		return s
-		
 
 inp = input('Enter Input : ').split(',')
 q = Queue()
