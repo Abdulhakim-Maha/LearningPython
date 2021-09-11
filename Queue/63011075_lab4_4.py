@@ -1,40 +1,43 @@
 from collections import deque
 class Queue:
-	def __init__(self, ls = None) -> None:
-		if ls != None:
-			self.q = deque(ls,len(ls)) 
-		else:
-			self.q = deque()
+	def __init__(self) -> None:
+		self.q = deque()
+		self.dpm = deque()
 	def enqueue(self,i):
-		# self.q.append(i)
-		if self.isEmpty() :
-			self.q.append(i)
+		dpm = i // 100
+		# if i in self.q:
+		# 	return
+		if len(self.q) == 0:
+			self.q.append(i)	
+			self.dpm.append(dpm)
 		else:
-			for j in range(len(self.q)) :
-				if self.q[j] // 100 == i // 100:
-					self.q.insert(j + 1, i)
-					break;
-				else:
-					self.q.append(i)
-					break;
-				
-	def dequeue(self):
-		return self.q.popleft() if not self.isEmpty() else 'Empty'
-	def items(self):
-		return self.q
-	def size(self):
-		return len(self.q)
-	def isEmpty(self):
-		return len(self.q) == 0
+			if dpm not in self.dpm:
+				self.q.append(i)
+				self.dpm.append(dpm)
+			else:
+				# insert last index
+				find = deque(self.dpm)
+				find.reverse()
+				index = find.index(dpm)
+				last_index = (len(find)-index-1)
+				# print('last index :',last_index)
+				self.q.insert(last_index + 1,i)
+				self.dpm.insert(last_index + 1,dpm)
 
-elm,queue = input('Enter Input : ').split('/')
-queue = queue.split(',')
-q = Queue()
-for i in queue:
-	typ = i.split()[0]
-	num = i.split()[-1]
-	if typ == 'E':
-		q.enqueue(int(num))
-	elif typ == 'D':
-		print(q.dequeue())
-# print(queue)
+			
+	def dequeue(self) -> str:
+		if len(self.q) == 0:
+			return 'Empty'
+		else:
+			self.dpm.popleft()
+			return self.q.popleft()
+
+if __name__ == '__main__':
+	inp =input('Enter Input : ').split('/')[-1].split(',')
+	q = Queue()
+	for i in inp:
+		if i[0] == 'E':
+			q.enqueue(int(i[2:]))
+		elif i[0] == 'D':
+			print(f'{q.dequeue()}')
+

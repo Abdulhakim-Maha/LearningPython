@@ -4,17 +4,14 @@ class Queue:
 		self.q = deque()
 		self.p = deque()
 	def enqueue(self,i):
-		if i in self.q:
-			return 
-		else:
-			self.q.append(i)
-			self.p.append(0)
+		self.q.append(i)
+		self.p.append(0)
 			# print('Queue :',self.items())
 
 
 	def enqueue_s(self,i):
-		if i in self.q:
-			return 
+		# if i in self.q:
+		# 	return 
 		if len(self.q) == 0:
 			self.q.append(i)
 			self.p.append(1)
