@@ -88,7 +88,7 @@
 # print(str(1) + '\n' +str(2))
 s = ' austiniqer '
 s.strip()
-print(s)
+print(str(None))
 # print('{} {}'.format(x,y))
 # lis = [1,2,3,4,5]
 # print('A is {}',format())
