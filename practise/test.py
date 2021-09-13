@@ -85,7 +85,10 @@
 # def retwovalue():
 # 	return 2
 # x = retwovalue()
-print(str(1) + '\n' +str(2))
+# print(str(1) + '\n' +str(2))
+s = ' austiniqer '
+s.strip()
+print(s)
 # print('{} {}'.format(x,y))
 # lis = [1,2,3,4,5]
 # print('A is {}',format())

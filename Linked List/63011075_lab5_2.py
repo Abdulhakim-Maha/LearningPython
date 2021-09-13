@@ -98,6 +98,7 @@ class LinkedList:
 l = LinkedList()
 inp = input('Enter Input : ').split(',')
 for i in inp:
+	i = i.strip()
 	if i[:2] == 'Ab':
 		l.add_before(int(i[2:]))
 		print('linked list :',l)
