@@ -15,6 +15,8 @@ class LinkedList:
 		return total
 	def __str__(self) -> str:
 		s = ''
+		if self.lenght() == 0:
+			return s
 		cur = self.dummy.next 
 		while cur.next != None:
 			s += str(cur.data) + '->'
@@ -23,6 +25,8 @@ class LinkedList:
 		return s
 	def str_reverse(self):
 		s = ''
+		if self.lenght() == 0:
+			return s
 		cur = self.dummy.next
 		while cur.next != None:
 			cur = cur.next
@@ -40,7 +44,27 @@ class LinkedList:
 		cur.next = new_node
 		new_node.prev = cur
 		new_node.next = None
+	def add_before(self,data):
+		if self.lenght() == 0:
+			self.append(data)
+		else:
+			new_node = Node(data)
+			cur = self.dummy
+			p = cur.next
+			p.prev = new_node
+			new_node.next = cur.next
+			new_node.prev = cur
+			cur.next = new_node
 	def insert(self,index,data):
+		if index < 0 or index > self.lenght():
+			print('Data cannot be added')
+			return False
+		if self.lenght() == 0 and index == 0:
+			self.append(data)
+			return True
+		if self.lenght() == index :
+			self.append(data)		
+			return True
 		cur = self.dummy.next
 		new_node = Node(data)
 		for i in range(index+1):
@@ -51,6 +75,7 @@ class LinkedList:
 				new_node.next = cur
 				cur.prev = new_node
 			cur = cur.next
+		return True
 
 	def remove(self,data):
 		cur = self.dummy
@@ -74,7 +99,9 @@ l = LinkedList()
 inp = input('Enter Input : ').split(',')
 for i in inp:
 	if i[:2] == 'Ab':
-		pass
+		l.add_before(int(i[2:]))
+		print('linked list :',l)
+		print('reverse :',l.str_reverse())
 	elif i[0] == 'A':
 		l.append(int(i[2:]))
 		print('linked list :',l)
@@ -89,7 +116,8 @@ for i in inp:
 		print('reverse :',l.str_reverse())
 	elif i[0] == 'I':
 		index, data = i[2:].split(':')
-		l.insert(int(index),int(data))
-		print('index = {} and data = {}'.format(index,data))
+		x = l.insert(int(index),int(data))
+		if x :
+			print('index = {} and data = {}'.format(index,data))
 		print('linked list :',l)
 		print('reverse :',l.str_reverse())
