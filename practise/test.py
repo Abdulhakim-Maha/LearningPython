@@ -82,6 +82,12 @@
   
 #         # ending line after each row  
 #         print() 
-lis = [1,2,3,4,5]
-i = 3
-print(i in lis)
+# def retwovalue():
+# 	return 2
+# x = retwovalue()
+print(str(1) + '\n' +str(2))
+# print('{} {}'.format(x,y))
+# lis = [1,2,3,4,5]
+# print('A is {}',format())
+# i = 3
+# print(i in lis)
