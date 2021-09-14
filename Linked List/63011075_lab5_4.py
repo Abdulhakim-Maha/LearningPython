@@ -1,6 +1,3 @@
-from typing import Deque
-
-
 class LinkedList:
 	class Node:
 		def __init__(self,data) -> None:
@@ -40,6 +37,43 @@ class LinkedList:
 			cur = cur.next
 		s += str(cur.data) 
 		return s
+	def left(self):
+		if self.cursor.prev == self.dummy:
+			return
+		cur = self.cursor
+		front = cur.prev.prev
+		middle = cur.prev
+		last = cur.next
+
+		front.next = cur
+		middle.prev = cur
+		middle.next = cur.next
+		cur.prev = front
+		cur.next = middle
+		if last != None:
+			last.prev = middle
+		
+		
+	def right(self):
+		if self.cursor.next == None:
+			return
+		cur = self.cursor
+		first = cur.prev
+		middle = cur.next
+		last = cur.next.next
+
+		first.next = middle
+		middle.prev = first
+		middle.next = cur
+		if last != None:
+			last.prev = cur
+		cur.next = last
+		cur.prev = middle
+
+	def backspace(self):
+		pass
+	def delete(self):
+		pass
 
 if __name__ == '__main__':
 	L = LinkedList()
@@ -47,6 +81,12 @@ if __name__ == '__main__':
 	for i in inp:
 		if i[0] == 'I':
 			L.insert(i[2:])
+			print(L)
+		elif i[0] == 'L':
+			L.left()
+			print(L)
+		elif i[0] == 'R':
+			L.right()
 			print(L)
 	# print(L)
 
