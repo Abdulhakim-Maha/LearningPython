@@ -71,9 +71,18 @@ class LinkedList:
 		cur.prev = middle
 
 	def backspace(self):
-		pass
+		cur = self.cursor
+		if cur.prev == self.dummy:
+			return
+		cur.prev.prev.next = cur
+		cur.prev = cur.prev.prev
 	def delete(self):
-		pass
+		cur = self.cursor
+		if cur.next == None:
+			return
+		if cur.next.next != None:	
+			cur.next.next.prev = cur
+		cur.next = cur.next.next
 
 if __name__ == '__main__':
 	L = LinkedList()
@@ -81,12 +90,18 @@ if __name__ == '__main__':
 	for i in inp:
 		if i[0] == 'I':
 			L.insert(i[2:])
-			print(L)
+			# print(L)
 		elif i[0] == 'L':
 			L.left()
-			print(L)
+			# print(L)
 		elif i[0] == 'R':
 			L.right()
-			print(L)
-	# print(L)
+			# print(L)
+		elif i[0] == 'D':
+			L.delete()
+			# print(L)
+		elif i[0] == 'B':
+			L.backspace()
+			# print(L)
+	print(L)
 
