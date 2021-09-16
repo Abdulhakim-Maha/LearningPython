@@ -1,3 +1,4 @@
+# an error occurs!!
 def gcd(num,divisor):
 	Gcd = 1
 	num1 = int(num.split()[0])
