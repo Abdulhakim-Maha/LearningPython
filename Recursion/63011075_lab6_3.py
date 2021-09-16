@@ -4,6 +4,11 @@ def gcd(num,divisor):
 	num2 = int(num.split()[-1])
 	if num1 == 0 and num2 == 0:
 		return -1 	
+	elif num1 == 0 or num2 == 0:
+		if num1 == 0:
+			return num2
+		elif num2 == 0:
+			return num1
 	elif divisor <= abs(num1) and divisor <= abs(num2):
 		if num1 % divisor == 0 and num2 % divisor == 0:
 			num1 //= divisor 
@@ -21,7 +26,11 @@ inp = input('Enter Input : ')
 num1 = inp.split()[0]
 num2 = inp.split()[-1]
 gcd = gcd(inp,2)
+
 if gcd != -1:
-	print('The gcd of {} and {} is : {}'.format(num1,num2,gcd))
+	if num1 > num2:
+		print('The gcd of {} and {} is : {}'.format(num1,num2,gcd))
+	else:
+		print('The gcd of {} and {} is : {}'.format(num2,num1,gcd))
 else:
 	print('Error! must be not all zero.')
