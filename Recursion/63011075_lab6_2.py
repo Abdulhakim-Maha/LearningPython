@@ -16,7 +16,7 @@ def isPalindrome(st):
 inp = input('Enter Input : ')
 isPalin = isPalindrome(inp)
 if inp == isPalin:
-	print('\'{}\' is palindrome'.format(inp,))
+	print('\'{}\' is palindrome'.format(inp))
 else:
-	print('\'{}\' is not palindrome'.format(inp,))
+	print('\'{}\' is not palindrome'.format(inp))
 
