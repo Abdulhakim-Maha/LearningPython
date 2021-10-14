@@ -9,12 +9,13 @@ class NQueens:
     def solve(self):
         positions = [-1] * self.size
         self.put_queen(positions, 0)
-        print("Input : " + str(n))
+        print("Input : " + str(self.size))
         print("Number of Solution(s) : " + str(self.solutions))
+        print("--- %s seconds ---" % (time.time() - start_time))
 
     def put_queen(self, positions, target_row):
         if target_row == self.size:
-            self.show_full_board(positions)
+            #self.show_full_board(positions)
             self.solutions += 1
         else:
             for column in range(self.size):
@@ -43,17 +44,9 @@ class NQueens:
             print(line)
         print("\n")
 
-    def show_short_board(self, positions):
-        line = ""
-        for i in range(self.size):
-            line += str(positions[i]) + " "
-        print(line)
-
 def main():
-    NQueens(n)
+    for n in range(2,15):
+        NQueens(n)
 
 if __name__ == "__main__":
-    n = 4
     main()
-
-print("--- %s seconds ---" % (time.time() - start_time))

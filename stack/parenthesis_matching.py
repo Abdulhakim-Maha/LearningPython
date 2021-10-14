@@ -2,7 +2,7 @@ class Stack:
 	def __init__(self):
 		self.stack = []
 	def __str__(self) -> str:
-		return 'Stack : ' + str(self.stack)
+		return 'Stack : '+ str(self.stack)
 	def push(self, item):
 		self.stack.append(item)
 	def pop(self):
@@ -33,6 +33,7 @@ def parent_check(ls):
 			elif i == ']':
 				if last != '[':
 					match = False
+			print(f'Pop   : \'{last}\'')
 			print(s)
 	return match
 

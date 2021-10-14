@@ -33,13 +33,24 @@ def solveNQueens(n: int):
     backtrack(0)
     return res , len(res)
 
-n = 4
-res , soluntion = solveNQueens(n)
-for i in range(soluntion):
-    b = res[i]
-    for j in range(n):           
-            print (b[j])
-    print("")
-print("Input : " + str(n))
-print("Number of Solution(s) : " + str(soluntion))
-print("--- %s seconds ---" % (time.time() - start_time))
+# n = 4
+# res , soluntion = solveNQueens(n)
+# for i in range(soluntion):
+#     b = res[i]
+#     for j in range(n):           
+#             print (b[j])
+#     print("")
+# print("Input : " + str(n))
+# print("Number of Solution(s) : " + str(soluntion))
+# print("--- %s seconds ---" % (time.time() - start_time))
+for n in range(2,17):
+    start_time = time.time()
+    res , soluntion = solveNQueens(n)
+    #for i in range(soluntion):
+    #   b = res[i]
+    #  for j in range(n):           
+    #         print (b[j])
+        #print("")
+    print("Input : " + str(n))
+    print("Number of Solution(s) : " + str(soluntion))
+    print("--- %s seconds ---" % (time.time() - start_time))
