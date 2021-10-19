@@ -9,6 +9,5 @@ def happynumber(n):
 		return happynumber(sum)
 
 
-if __name__ == '__main__':
-	inp = int(input('Enter numter : '))
-	print(happynumber(inp))
+inp = int(input('Enter numter : '))
+print(happynumber(inp))
