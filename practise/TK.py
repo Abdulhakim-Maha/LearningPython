@@ -2,10 +2,13 @@ from tkinter import *
 from tkinter import ttk
 import subprocess as sp
 programname = 'Notepad.exe'
-filename = 'D:\learningPython\practise\count.txt'
+filename = 'D:\learningPython\practise\count.txt' ### path ที่เก็บ count.txt
 
 def Open():
-	sp.Popen([programname, filename])
+	try:
+		sp.Popen([programname, filename])
+	except FileNotFoundError:
+		print('ไม่พบไฟล์')
 def men_plus():
 	value_men.set(int(value_men.get()) + 1)
 	men = value_men.get() 
@@ -41,7 +44,7 @@ def Save():
 	total.set(result)
 	msg = 'M = ' + value_men.get() + '\nW = ' + value_women.get() + '\nTotal = ' + total.get()
 	try:
-		file = open(r'D:\learningPython\practise\count.txt','w')
+		file = open(filename,'w')
 		file.write(msg)
 		file.close()
 	except FileNotFoundError:
