@@ -40,6 +40,41 @@ class DoudlyLinkedList:
 			l += 1
 			cur = cur.next
 		return l
+	def remove(self,data):
+		if self.isEmpty():  return 'Empty'
+		else:
+			cur = self.dummy.next
+			while cur.next != None:
+				if cur.value == data:
+					p = cur.next
+					q = cur.prev
+					q.next = p
+					p.prev = q
+				cur = cur.next
+			if cur.value == data:
+				q = cur.prev
+				q.next = None
+	def insert(self, data, index):
+		if self.isEmpty(): return 'Empty'
+		if index > len(self):
+			self.append(data)
+		else:
+			p = self.find_with_index(index)
+			q = p.prev
+			new_node = self.Node(data)
+			q.next = new_node
+			new_node.next = p
+			p.prev = new_node
+			new_node.prev = q
+
+	def find_with_index(self,index):
+		if self.isEmpty(): return 'Empty'
+		if index > len(self): return 'Index out of bound'
+		else:
+			cur = self.dummy.next
+			for i in range(index):
+				cur = cur.next
+			return cur
 
 if __name__ == '__main__':
 	L = DoudlyLinkedList()
@@ -51,6 +86,19 @@ if __name__ == '__main__':
 			L.append(int(item))
 			print('\tAppend :',item)		
 			print('Linked List :',L)
+		elif typ == 'R':
+			L.remove(int(item))
+			print('\tRemove :',item)		
+			print('Linked List :',L)
+		elif typ == 'F':
+			print('\tData index of :',item,'is :',(L.find_with_index(int(item))).value)		
+		elif typ == 'I':
+			data = item.split(':')[0]
+			index = item.split(':')[-1]
+			L.insert(int(data), int(index))
+			print('\tInsert :',item,'at index :',index)		
+			print('Linked List :',L)
+			
 		# # elif typ == 'INS':
 		# 	result = L.insert(item.split(':')[0],int(item.split(':')[1]))
 		# 	print('\tInsert :',item.split(':')[0],'Index :',item.split(':')[1])
