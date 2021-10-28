@@ -1,18 +1,16 @@
 from flask import Flask,render_template
+from flask_restful import Api,Resource 
 app = Flask(__name__)
+api = Api(app)
 
-@app.route('/')
-def index():
-	return render_template('index.html') 
+# get API
+class HelloWorld(Resource):
+	def get(self, name):
+		return {"Hello": name }
+	def post(self):
+		return {'Post' : 'Posted'}
 
-@app.route('/user/<name>')
-def home(name):
-	return '<h1>Hello {}'.format(name)
-
-@app.route('/hello')
-def hello():
-	return '<div>Welcome to my website</div>'
-	
+api.add_resource(HelloWorld,'/helloWorld/<string:name>')
 
 if __name__ == '__main__':
 	app.run(debug=True)
