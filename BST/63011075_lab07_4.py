@@ -1,3 +1,15 @@
+class Queue:
+	def __init__(self) -> None:
+		self.q = []
+	def enqueue(self, item):
+		self.q.append(item)
+	def dequeue(self):
+		return self.q.pop(0)
+	def __str__(self) -> str:
+		return str(self.q)
+	def isEmpty(self):
+		return len(self.q) == 0
+
 class Node:
 	def __init__(self, data) -> None:
 		self.data = data
@@ -43,9 +55,16 @@ class BST:
 			self.post_order(cur.left)
 			self.post_order(cur.right)
 			print(cur.data,end=' ')
-	def breadth(self,cur):
-		if cur is not None:
-			print()
+	def breadth(self,root):
+			q = Queue()	
+			q.enqueue(root)
+			while not q.isEmpty():
+				n = q.dequeue()
+				print(n.data,end=' ')
+				if n.left:
+					q.enqueue(n.left)
+				if n.right:
+					q.enqueue(n.right)
 
 def printTree90(node, level = 0):
     if node != None:
@@ -57,10 +76,12 @@ data = input('Enter Input : ').split()
 tree = BST()
 for i in data:
 	tree.insert(int(i))
-printTree90(tree.root)
+# printTree90(tree.root)
 print('Preorder : ',end='')
 tree.pre_order(tree.root)
 print('\nInorder : ',end='')
 tree.in_order(tree.root)
 print('\nPostorder : ',end='')
 tree.post_order(tree.root)
+print('\nBreadth : ',end='')
+tree.breadth(tree.root)
