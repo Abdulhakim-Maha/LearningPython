@@ -58,13 +58,16 @@ class BST:
 	def breadth(self,root):
 			q = Queue()	
 			q.enqueue(root)
+			s = ''
 			while not q.isEmpty():
 				n = q.dequeue()
-				print(n.data,end=' ')
+				# print(n.data,end=' ')
+				s += str(n.data) + ' '
 				if n.left:
 					q.enqueue(n.left)
 				if n.right:
 					q.enqueue(n.right)
+			return s
 
 def printTree90(node, level = 0):
     if node != None:
@@ -83,5 +86,6 @@ print('\nInorder : ',end='')
 tree.in_order(tree.root)
 print('\nPostorder : ',end='')
 tree.post_order(tree.root)
-print('\nBreadth : ',end='')
-tree.breadth(tree.root)
+# print('\nBreadth : ',end='')
+# tree.breadth(tree.root)
+print('\nBreadth :',tree.breadth(tree.root))

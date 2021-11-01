@@ -29,16 +29,30 @@ class BST:
 		if self.root is None:
 			s = ' Not have'
 		else:
-			s = self.__search_min(self.root,x)
+			# s = self.__search_min(self.root,x)
+			x = self.in_order(self.root,x, '')
+			# print(s)
+			# print(x)
 			# print(len(s))
-			# print(len(s))
-			# print(s.count(' '))
-			if len(s) == s.count(' '):
+			# print(len(x))
+			if len(x) == 0:
 				s = ' Not have'
+				# print(True)
+			# print(s.count(' '))
+			# if len(s) == s.count(' '):
+			# 	s = ' Not have'
 			# pr
 			# if ord(s[0]) == 32:
 				# s = ' Not have'
-		return s
+		return x
+
+	def in_order(self, cur_node, x ,traversal):
+		if cur_node:
+			traversal = self.in_order(cur_node.left,x, traversal)
+			if cur_node.data < x: 
+				traversal += str(cur_node.data) + ' '
+			traversal = self.in_order(cur_node.right,x, traversal)
+		return traversal
 
 	def __search_min(self, cur_node, x):
 		s = ''
