@@ -57,8 +57,6 @@ def father(r,data):
 	return 'Not Found Data'
 
 
-
-
 tree = BinarySearchTree()
 data = input("Enter Input : ").split("/")
 for e in data[0].split():

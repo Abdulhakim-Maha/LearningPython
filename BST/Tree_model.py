@@ -146,6 +146,29 @@ class BST:
 				q.enqueue(p.right)
 				size += 1
 		return size
+	def father(self,data):
+		cur = self.root
+		if  cur.data == data:
+			return f'None Because {data} is root node'
+		while cur.left or cur.right:
+			if cur.right and cur.right.data == data:
+				return cur.data
+			elif cur.left and cur.left.data == data:
+				return cur.data
+			if data > cur.data:
+				cur = cur.right
+			elif data < cur.data:
+				cur = cur.left
+		return 'Not Found'
+	def son(self,data):
+		pass
+	def find(self,node,data):
+		if data > node.data and node.right:
+			return self.find(node.right, data)
+		elif data < node.data and node.left:
+			return self.find(node.left, data)
+		if data == node.data:
+			return True
 
 T = BST()
 inp = [int(i) for i in input('Enter Input : ').split()]
@@ -159,4 +182,6 @@ print('Level order :',T.traversal('level order'))
 print('Reverse level order :',T.traversal('reverse level order'))
 print('Height :',T.height(T.root))		
 print('Size :',T.size(T.root))
+print('Find 5 :',T.find(T.root,5))
+print('Father of {} is {}'.format(5,T.father(5)))
 # print('Size :',T.size_with_queue())
