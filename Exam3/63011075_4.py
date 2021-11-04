@@ -11,11 +11,7 @@ class TreeNode(object):
 
 
 def list_to_bst(list_nums):
-
-       #code here
-
-    return node
-
+	pass
 
 
 def preOrder(node): 
@@ -45,7 +41,7 @@ def printBST(node,level = 0):
 
 
 list_nums = sorted([int(item) for item in input("Enter list : ").split()])
-
+print(list_nums)
 result = list_to_bst(list_nums)
 
 
