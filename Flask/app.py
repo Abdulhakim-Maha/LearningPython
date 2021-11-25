@@ -19,10 +19,14 @@ class HelloWorld(Resource):
 	def post(self):
 		args = list_post_args.parse_args()
 		q.enqueue(args)	
-		# print(q)	
+		print(q)	
 		return {'message': 'added'},201
 		
 api.add_resource(HelloWorld,'/getMusic')
+
+@app.route('/')
+def hello():
+	return template_rendered('about.html')
 
 if __name__ == '__main__':
 	q = Q.Queue()

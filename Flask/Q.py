@@ -9,3 +9,5 @@ class Queue:
 		return str(self.q)
 	def isEmpty(self):
 		return len(self.q) == 0
+	
+	
